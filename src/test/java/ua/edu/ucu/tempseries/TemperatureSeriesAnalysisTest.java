@@ -52,6 +52,11 @@ public class TemperatureSeriesAnalysisTest {
         double[] actualGreat = seriesAnalysis.findTempsGreaterThen(1);
         assertEquals(Arrays.toString(expGreat), Arrays.toString(actualGreat));
 
+        // Temp Summary Statistics
+        TempSummaryStatistics expStat = new TempSummaryStatistics(expAverResult, expDevResult, expMin, expMax);
+        TempSummaryStatistics actualStat = seriesAnalysis.summaryStatistics();
+        assertEquals(Arrays.toString(expStat.toArray()), Arrays.toString(actualStat.toArray()));
+
         //add temps
         double[] temps = {2.0, 7.0};
         int expLen = 3;
@@ -89,6 +94,9 @@ public class TemperatureSeriesAnalysisTest {
 
         //Temps greater Then value
         seriesAnalysis.findTempsGreaterThen(1);
+
+        // Temp Summary Statistics
+        seriesAnalysis.summaryStatistics();
 
         //add temps
         double[] temps = {2.0, 7.0};
@@ -141,6 +149,11 @@ public class TemperatureSeriesAnalysisTest {
         double[] expGreat = {3.0, 5.0};
         double[] actualGreat = seriesAnalysis.findTempsGreaterThen(1);
         assertEquals(Arrays.toString(expGreat), Arrays.toString(actualGreat));
+
+        // Temp Summary Statistics
+        TempSummaryStatistics expStat = new TempSummaryStatistics(expAverResult, expDevResult, expMin, expMax);
+        TempSummaryStatistics actualStat = seriesAnalysis.summaryStatistics();
+        assertEquals(Arrays.toString(expStat.toArray()), Arrays.toString(actualStat.toArray()));
 
         //add temps
         double[] temps = {2.0, 7.0};

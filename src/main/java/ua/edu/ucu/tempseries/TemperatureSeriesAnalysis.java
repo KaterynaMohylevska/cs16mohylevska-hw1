@@ -155,6 +155,9 @@ public class TemperatureSeriesAnalysis {
     }
 
     public TempSummaryStatistics summaryStatistics() {
+        if (len == 0){
+            throw new IllegalArgumentException();
+        }
         TempSummaryStatistics statistics = new TempSummaryStatistics(average(), deviation(), min(), max());
         return statistics;
     }

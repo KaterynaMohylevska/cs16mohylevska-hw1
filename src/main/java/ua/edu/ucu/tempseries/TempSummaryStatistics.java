@@ -11,5 +11,11 @@ public class TempSummaryStatistics {
         this.minTemp = minTemp;
         this.maxTemp = maxTemp;
     }
+
+    public double[] toArray(){
+        double[] arr = {avgTemp, devTemp, minTemp, maxTemp};
+        return arr;
+    }
+
     
 }
