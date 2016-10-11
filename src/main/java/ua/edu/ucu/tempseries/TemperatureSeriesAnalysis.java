@@ -8,11 +8,13 @@ public class TemperatureSeriesAnalysis {
     int len;
     int lastIndex;
 
-    public TemperatureSeriesAnalysis() {}
+    public TemperatureSeriesAnalysis() {
+        this.temperatureSeries = {};
+    }
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        for (int i = 0; i < len; i++){
-            if (temperatureSeries[i] < -273){
+        for (int i = 0; i < len; i++) {
+            if (temperatureSeries[i] < -273) {
                 throw new InputMismatchException();
             }
         }
@@ -22,16 +24,21 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double average() {
-        if (len == 0) throw new IllegalArgumentException();
+        if (len == 0) {
+            throw new IllegalArgumentException();
+        }
         double sum = 0;
-        for (int i = 0; i < len; i++){
-            sum += temperatureSeries[i];}
+        for (int i = 0; i < len; i++) {
+            sum += temperatureSeries[i];
+        }
         double average = sum/len;
         return average;
     }
 
     public double deviation() {
-        if (len == 0) throw new IllegalArgumentException();
+        if (len == 0) {
+            throw new IllegalArgumentException();
+        }
 
         double average = average();
         double sum = 0;
@@ -46,17 +53,19 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double min() {
-        if (len == 0) throw new IllegalArgumentException();
+        if (len == 0) {
+            throw new IllegalArgumentException();
+        }
         double min = temperatureSeries[0];
 
-        for (int i = 1; i < len; i++){
+        for (int i = 1; i < len; i++) {
             if (temperatureSeries[i] < min) min = temperatureSeries[i];
         }
         return min;
     }
 
     public double max() {
-        if (len == 0)throw new IllegalArgumentException();
+        if (len == 0) throw new IllegalArgumentException();
 
         double max = temperatureSeries[0];
 
