@@ -88,10 +88,10 @@ public class TemperatureSeriesAnalysis {
 
         double closToZero = temperatureSeries[0];
         for (int i = 1; i < len; i++) {
-            if ((temperatureSeries[i] > 0 &&
-                    temperatureSeries[i] < closToZero)
-                    || (temperatureSeries[i] < 0 &&
-                    temperatureSeries[i] > closToZero)) {
+            if (temperatureSeries[i] > 0
+                    && temperatureSeries[i] < closToZero
+                    || temperatureSeries[i] < 0
+                    && temperatureSeries[i] > closToZero) {
                 closToZero = temperatureSeries[i];
             }
         }
@@ -107,10 +107,10 @@ public class TemperatureSeriesAnalysis {
 
         double closToValue = temperatureSeries[0];
         for (int i = 1; i < len; i++) {
-            if ((temperatureSeries[i] > tempValue &&
-                    temperatureSeries[i] < closToValue)
-                    || (temperatureSeries[i] < tempValue &&
-                    temperatureSeries[i] > closToValue)) {
+            if (temperatureSeries[i] > tempValue
+                    && temperatureSeries[i] < closToValue
+                    || temperatureSeries[i] < tempValue
+                    && temperatureSeries[i] > closToValue) {
                 closToValue = temperatureSeries[i];
             }
         }
