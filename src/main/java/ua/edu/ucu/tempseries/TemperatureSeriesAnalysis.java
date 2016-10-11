@@ -43,7 +43,8 @@ public class TemperatureSeriesAnalysis {
         double sum = 0;
 
         for (int i = 0; i < len; i++) {
-            double squrDev = (temperatureSeries[i] - average) * (temperatureSeries[i] - average);
+            double squrDev = (temperatureSeries[i] - average)
+                    * (temperatureSeries[i] - average);
             sum += squrDev;
         }
 
@@ -163,11 +164,8 @@ public class TemperatureSeriesAnalysis {
             throw new IllegalArgumentException();
         }
 
-        TempSummaryStatistics statistics = new TempSummaryStatistics();
-        statistics.setAvgTemp(average());
-        statistics.setDevTemp(deviation());
-        statistics.setMaxTemp(max());
-        statistics.setMinTemp(min());
+        TempSummaryStatistics statistics = new TempSummaryStatistics(average(),
+                deviation(), min(), max());
         return statistics;
     }
 
