@@ -37,7 +37,7 @@ public class TempSummaryStatistics {
         this.maxTemp = maxTemp;
     }
 
-    private double  maxTemp;
+    private double maxTemp;
 
 
     public double[] toArray() {
@@ -45,5 +45,5 @@ public class TempSummaryStatistics {
         return arr;
     }
 
-    
+
 }
