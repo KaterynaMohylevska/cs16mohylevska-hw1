@@ -53,7 +53,11 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(Arrays.toString(expGreat), Arrays.toString(actualGreat));
 
         // Temp Summary Statistics
-        TempSummaryStatistics expStat = new TempSummaryStatistics(expAverResult, expDevResult, expMin, expMax);
+        TempSummaryStatistics expStat = new TempSummaryStatistics();
+        expStat.setMinTemp(expMin);
+        expStat.setDevTemp(expDevResult);
+        expStat.setMaxTemp(expMax);
+        expStat.setAvgTemp(expAverResult);
         TempSummaryStatistics actualStat = seriesAnalysis.summaryStatistics();
         assertEquals(Arrays.toString(expStat.toArray()), Arrays.toString(actualStat.toArray()));
 
@@ -151,7 +155,11 @@ public class TemperatureSeriesAnalysisTest {
         assertEquals(Arrays.toString(expGreat), Arrays.toString(actualGreat));
 
         // Temp Summary Statistics
-        TempSummaryStatistics expStat = new TempSummaryStatistics(expAverResult, expDevResult, expMin, expMax);
+        TempSummaryStatistics expStat = new TempSummaryStatistics();
+        expStat.setMinTemp(expMin);
+        expStat.setDevTemp(expDevResult);
+        expStat.setMaxTemp(expMax);
+        expStat.setAvgTemp(expAverResult);
         TempSummaryStatistics actualStat = seriesAnalysis.summaryStatistics();
         assertEquals(Arrays.toString(expStat.toArray()), Arrays.toString(actualStat.toArray()));
 
