@@ -11,9 +11,10 @@ public class TemperatureSeriesAnalysis {
     public TemperatureSeriesAnalysis() {}
 
     public TemperatureSeriesAnalysis(double[] temperatureSeries) {
-        for (int i = 0; i < len; i++) {
-            if (temperatureSeries[i] < -273) {
+        for (int i = 0; i < len; i++){
+            if (temperatureSeries[i] < -273){
                 throw new InputMismatchException();
+            }
         }
         this.temperatureSeries = temperatureSeries;
         this.len = temperatureSeries.length;
@@ -21,9 +22,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double average() {
-        if (len == 0) {
-            throw new IllegalArgumentException();
-        }
+        if (len == 0) throw new IllegalArgumentException();
         double sum = 0;
         for (int i = 0; i < len; i++){
             sum += temperatureSeries[i];}
@@ -32,9 +31,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double deviation() {
-        if (len == 0) {
-            throw new IllegalArgumentException();
-        }
+        if (len == 0) throw new IllegalArgumentException();
 
         double average = average();
         double sum = 0;
@@ -49,23 +46,17 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double min() {
-        if (len == 0) {
-            throw new IllegalArgumentException();
-        }
+        if (len == 0) throw new IllegalArgumentException();
         double min = temperatureSeries[0];
 
         for (int i = 1; i < len; i++){
-            if (temperatureSeries[i] < min) {
-                min = temperatureSeries[i];
-            }
+            if (temperatureSeries[i] < min) min = temperatureSeries[i];
         }
         return min;
     }
 
     public double max() {
-        if (len == 0) {
-            throw new IllegalArgumentException();
-        }
+        if (len == 0)throw new IllegalArgumentException();
 
         double max = temperatureSeries[0];
 
@@ -76,9 +67,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToZero() {
-        if (len == 0) {
-            throw new IllegalArgumentException();
-        }
+        if (len == 0) throw new IllegalArgumentException();
 
 
         double closToZero = temperatureSeries[0];
@@ -96,9 +85,7 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double findTempClosestToValue(double tempValue) {
-        if (len == 0) {
-            throw new IllegalArgumentException();
-        }
+        if (len == 0) throw new IllegalArgumentException();
 
         double closToValue = temperatureSeries[0];
         for (int i = 1; i < len; i++){
@@ -114,49 +101,45 @@ public class TemperatureSeriesAnalysis {
     }
 
     public double[] findTempsLessThen(double tempValue) {
-        if (len == 0) {
-            throw new IllegalArgumentException();
-        }
+        if (len == 0) throw new IllegalArgumentException();
 
         double[] newTemp = new double[(int)len];
         int lastInd = 0;
         for (int i = 0; i < len; i++){
-            if (temperatureSeries[i] < tempValue) {
+            if (temperatureSeries[i] < tempValue){
                 newTemp[lastInd] = temperatureSeries[i];
                 lastInd++;
             }
         }
         double[] lessTemp = new double[lastInd];
-        for (int i = 0; i < lessTemp.length; i++) {
+        for (int i = 0; i < lessTemp.length; i++){
             lessTemp[i] = newTemp[i];
         }
         return lessTemp;
     }
 
     public double[] findTempsGreaterThen(double tempValue) {
-        if (len == 0) {
+        if (len == 0){
             throw new IllegalArgumentException();
         }
 
         double[] newTemp = new double[len];
         int lastInd = 0;
-        for (int i = 0; i < len; i++) {
-            if (temperatureSeries[i] > tempValue) {
+        for (int i = 0; i < len; i++){
+            if (temperatureSeries[i] > tempValue){
                 newTemp[lastInd] = temperatureSeries[i];
                 lastInd++;
             }
         }
         double[] greaterTemp = new double[lastInd];
-        for (int i = 0; i < greaterTemp.length; i++) {
+        for (int i = 0; i < greaterTemp.length; i++){
             greaterTemp[i] = newTemp[i];
         }
         return greaterTemp;
     }
 
     public TempSummaryStatistics summaryStatistics() {
-        if (len == 0) {
-            throw new IllegalArgumentException();
-        }
+        if (len == 0) throw new IllegalArgumentException();
 
         TempSummaryStatistics statistics = new TempSummaryStatistics();
         statistics.setAvgTemp(average());
@@ -167,8 +150,8 @@ public class TemperatureSeriesAnalysis {
     }
 
     public int addTemps(double... temps) {
-        for (int i = 0; i < temps.length; i++) {
-            if (lastIndex >= len - 1) {
+        for (int i = 0; i < temps.length; i++){
+            if (lastIndex >= len - 1){
                 double[] newTemp = new double[len*2];
                 for (int j = 0; j < len; j++){
                     newTemp[j] = temperatureSeries[j];
