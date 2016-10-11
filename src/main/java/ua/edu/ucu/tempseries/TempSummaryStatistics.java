@@ -40,7 +40,7 @@ public class TempSummaryStatistics {
     private double  maxTemp;
 
 
-    public double[] toArray(){
+    public double[] toArray() {
         double[] arr = {avgTemp, devTemp, minTemp, maxTemp};
         return arr;
     }
